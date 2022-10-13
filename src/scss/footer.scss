@@ -30,16 +30,16 @@
 
   &__top {
     margin-top: -221px;
-    @include adaptiveValue("padding-left", 252, 70);
-    @include adaptiveValue("padding-right", 252, 70);
-    @include adaptiveValue("padding-top", 64, 40);
-    @include adaptiveValue("padding-bottom", 64, 40);
+    @include adaptiveValue("padding-left", 252, 20);
+    @include adaptiveValue("padding-right", 252, 20);
+    @include adaptiveValue("padding-top", 64, 10);
+    @include adaptiveValue("padding-bottom", 64, 10);
 
     background: #0C0C0C;
     border: 1px solid rgba(220, 202, 135, 0.2);
     box-shadow: 22px 30px 95px 1px rgba(0, 0, 0, 0.7);
     display: grid;
-    @include adaptiveValue("gap", 64, 40);
+    @include adaptiveValue("gap", 64, 32);
     text-align: center;
   }
 

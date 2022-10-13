@@ -70,8 +70,8 @@
 }
 
 .item-chefs {
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
 
   &__wrapper {
     position: relative;
@@ -103,10 +103,12 @@
 
   &__image-ibg {
     padding-bottom: percent(520, 412);
+    overflow: hidden;
 
     img {
       transition: all 0.5s ease 0s;
       border: 1px solid $mainYellow;
+      transform: perspective(0);
     }
   }
 
