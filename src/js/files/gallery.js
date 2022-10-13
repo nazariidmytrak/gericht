@@ -40,6 +40,7 @@ import '@scss/libs/gallery/lightgallery.scss';
 
 
 export function gallery(params) {
+	/*
 	const galleries = document.querySelectorAll('[data-gallery]');
 	if (galleries.length) {
 		let galleyItems = [];
@@ -56,7 +57,7 @@ export function gallery(params) {
 		// Добавляем в объект модулей
 		flsModules.gallery = galleyItems;
 	}
-
+*/
 }
 
 
