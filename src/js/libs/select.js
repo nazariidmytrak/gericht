@@ -228,6 +228,7 @@ class SelectConstructor {
 			});
 		}
 	}
+
 	// Функция закрытия конкретного селекта
 	selectСlose(selectItem) {
 		const originalSelect = this.getSelectElement(selectItem).originalSelect;
@@ -237,6 +238,7 @@ class SelectConstructor {
 			_slideUp(selectOptions, originalSelect.dataset.speed);
 		}
 	}
+
 	// Функция открытия/закрытия конкретного селекта
 	selectAction(selectItem) {
 		const originalSelect = this.getSelectElement(selectItem).originalSelect;
@@ -254,6 +256,7 @@ class SelectConstructor {
 			_slideToggle(selectOptions, originalSelect.dataset.speed);
 		}
 	}
+
 	// Сеттер значения заголовка селекта
 	setSelectTitleValue(selectItem, originalSelect) {
 		const selectItemBody = this.getSelectElement(selectItem, this.selectClasses.classSelectBody).selectElement;
@@ -393,6 +396,7 @@ class SelectConstructor {
 		// Запускаем конструктор элементов списка (options) и добавляем в тело псевдоселекта
 		selectItemOptions.innerHTML = this.getOptions(originalSelect);
 	}
+
 	// Обработчик клика на элемент списка
 	optionAction(selectItem, originalSelect, optionItem) {
 		if (originalSelect.multiple) { // Если мультивыбор
@@ -426,12 +430,14 @@ class SelectConstructor {
 		// Вызываем реакцию на изменение селекта
 		this.setSelectChange(originalSelect);
 	}
+
 	// Реакция на измененение оригинального select
 	selectChange(e) {
 		const originalSelect = e.target;
 		this.selectBuild(originalSelect);
 		this.setSelectChange(originalSelect);
 	}
+
 	// Обработчик изменения в селекте
 	setSelectChange(originalSelect) {
 		// Моментальная валидация селекта
@@ -450,6 +456,7 @@ class SelectConstructor {
 		// Вызов коллбэк функции
 		this.selectCallback(selectItem, originalSelect);
 	}
+
 	// Обработчик disabled
 	selectDisabled(selectItem, originalSelect) {
 		if (originalSelect.disabled) {
@@ -479,6 +486,7 @@ class SelectConstructor {
 			selectOptions.hidden === true ? _this.selectAction(selectItem) : null;
 		});
 	}
+
 	// Коллбэк функция
 	selectCallback(selectItem, originalSelect) {
 		document.dispatchEvent(new CustomEvent("selectCallback", {
@@ -487,6 +495,7 @@ class SelectConstructor {
 			}
 		}));
 	}
+
 	// Логгинг в консоль
 	setLogging(message) {
 		this.config.logging ? FLS(`[select]: ${message}`) : null;
