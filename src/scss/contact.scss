@@ -1,0 +1,133 @@
+//===================================================================================================
+
+//Contact
+.contact {
+  &__body {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: rem(250);
+      right: 50%;
+      width: 1920px;
+      height: 14908px;
+      transform: translate(50%, 0px);
+      background: url('@img/wave-element.svg') 0 0 / 100% no-repeat;
+
+      @media (max-width:$tablet) {
+        display: none;
+      }
+    }
+  }
+}
+
+//===================================================================================================
+
+//Map
+.map {
+  @include adaptiveValue("padding-top", 150, 40);
+  @include adaptiveValue("padding-bottom", 150, 40);
+
+  &__container {
+    opacity: 0.8;
+    filter: sepia(0.3);
+  }
+
+
+}
+
+//===================================================================================================
+
+//Subscribe
+.subscribe {
+  @include adaptiveValue("padding-top", 128, 40);
+  @include adaptiveValue("padding-bottom", 128, 40);
+
+  &__container {
+    display: grid;
+    row-gap: 32px;
+
+    @media (min-width:$tablet) {
+      grid-template-columns: auto 483px;
+      @include adaptiveValue("gap", 182, 50, 1330, 991, 0);
+    }
+  }
+
+  &__column {
+    &:first-child {
+      align-self: center;
+    }
+  }
+
+  &__form {
+    display: grid;
+    gap: 32px;
+  }
+
+  &__image-ibg {
+    padding-bottom: percent(691, 483);
+
+    @media (max-width:$tablet) {
+      display: none;
+    }
+
+    img {}
+  }
+}
+
+.form-subscribe {
+
+  &__lines {
+    display: grid;
+    gap: 32px;
+  }
+
+  &__line {
+    position: relative;
+
+    & .form__error {
+      color: red;
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__input {
+    color: $mainWhite;
+    @extend %cuf;
+    padding: 16px 19px;
+    background-color: transparent;
+    border: 1px solid #F5EFDB;
+    color: $mainColor;
+    width: 100%;
+    font-size: rem(20);
+
+    &::placeholder {
+      @extend %cuf;
+      font-style: normal;
+      font-weight: 600;
+      font-size: rem(16);
+      line-height: 1.75;
+      letter-spacing: 0.04em;
+      text-transform: capitalize;
+      color: $mainColor;
+    }
+
+  }
+
+  &__textarea {
+    height: 140px;
+    max-height: 100%;
+  }
+
+  &__button {
+    justify-self: start;
+
+    @media (max-width:$tablet) {
+      justify-self: center;
+    }
+  }
+}

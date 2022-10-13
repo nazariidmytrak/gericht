@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/_head.htm',{
+"title":"Blog-single"
+})
+
+<body>
+  <div class="wrapper">
+    @@include('html/_header.htm',{})
+    <main class="blog-single-main">
+      <section class="hero">
+        <div class="hero__content">
+          <h2 class="hero__title">Our Blogs</h2>
+          <div class="hero__breadcrumbs">
+            <a class="hero__link" href="index.html">Home</a>
+            <a class="hero__link" href="#">Our Blogs- Single Column</a>
+          </div>
+        </div>
+        <div class="hero__image-ibg">
+          <img data-src="@img/hero.jpg" alt="">
+        </div>
+      </section>
+
+      <div class="blog-single-main__body">
+        <div class="blog-single">
+          <div data-decor class="blog-single__container">
+            <div class="blog-single__content">
+              <div class="blog-single__items">
+                <div class="item-blog">
+                  <a class="item-blog__image-ibg" href="#">
+                    <img class="item-blog__img" data-src="@img/blog/blog-01.jpg" alt="">
+                  </a>
+                  <div class="item-blog__body">
+                    <div class="item-blog__info">
+                      <div class="item-blog__date">16 Apr 2021</div>
+                      <div class="item-blog__author">- Annalisa L</div>
+                    </div>
+                    <a class="item-blog__title" href="">Tips for prepping and caring for your grill</a>
+                    <div class="item-blog__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat
+                      mattis ipsum turpis elit elit scelerisque egestas mus in.</div>
+                    <a class="item-blog__button" href="#">Read More</a>
+                  </div>
+                </div>
+                <div class="item-blog">
+                  <a class="item-blog__image-ibg" href="#">
+                    <img class="item-blog__img" data-src="@img/blog/blog-02.jpg" alt="">
+                  </a>
+                  <div class="item-blog__body">
+                    <div class="item-blog__info">
+                      <div class="item-blog__date">23 May 2021</div>
+                      <div class="item-blog__author">-John Micheal</div>
+                    </div>
+                    <a class="item-blog__title" href="">summer cocktails and mocktails</a>
+                    <div class="item-blog__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat
+                      mattis ipsum turpis elit elit scelerisque egestas mus in.</div>
+                    <a class="item-blog__button" href="#">Read More</a>
+                  </div>
+                </div>
+                <a class="blog-single__button button" href="#">View More</a>
+              </div>
+              <div class="blog-single__sidebar sidebar">
+                <div class="sidebar__items">
+                  <div class="sidebar__item item-sidebar sidebar-search">
+                    <h5 class="item-sidebar__title sidebar-search__title">Search Page</h5>
+                    <form class="sidebar-search__form" action="#">
+                      <div class="sidebar-search__input-wrapper">
+                        <input class="sidebar-search__input" autocomplete="off" type="text" name="form[]"
+                          data-error="Ошибка" placeholder="Example" class="input">
+                        <a class="sidebar-search__link" href="#">
+                          <img src="@img/blog/sidebar/sidebar-search.svg" alt="">
+                        </a>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="sidebar__item item-sidebar sidebar-categories">
+                    <h5 class="item-sidebar__title sidebar-categories__title">All Categories</h5>
+                    <div class="sidebar-categories__items">
+                      <div class="sidebar-categories__item item-categories">
+                        <div class="item-categories__text">Photography</div>
+                        <!-- <div class="item-categories__decor"></div> -->
+                        <div class="item-categories__number">(1)</div>
+                      </div>
+                      <div class="sidebar-categories__item item-categories">
+                        <div class="item-categories__text">Baking</div>
+                        <!-- <div class="item-categories__decor"></div> -->
+                        <div class="item-categories__number">(2)</div>
+                      </div>
+                      <div class="sidebar-categories__item item-categories">
+                        <div class="item-categories__text">Cooking Tips</div>
+                        <!-- <div class="item-categories__decor"></div> -->
+                        <div class="item-categories__number">(6)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sidebar__item item-sidebar sidebar-latest">
+                    <h5 class="item-sidebar__title sidebar-latest__title">Our Latest Posts</h5>
+                    <a class="sidebar-latest__image" href="#">
+                      <img src="@img/blog/sidebar/sidebar-latest.jpg" alt="">
+                    </a>
+                    <div class="sidebar-latest__content content-latest">
+                      <div class="content-latest__info">
+                        <div class="content-latest__info-text">23 May 2021</div>
+                        <div class="content-latest__info-text">-John Micheal</div>
+                      </div>
+                      <a class="content-latest__title" href="#">summer cocktails and mocktails</a>
+                      <div class="content-latest__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Volutpat mattis ipsum turpis elit....</div>
+                      <a class="content-latest__link" href="#">Read More</a>
+                    </div>
+                  </div>
+                  <div class="sidebar__item item-sidebar sidebar-tags">
+                    <h5 class="item-sidebar__title sidebar-tags__title">Related Tags</h5>
+                    <div class="sidebar-tags__items">
+                      <div class="sidebar-tags__item item-tags">
+                        <a class="item-tags__link" href="#">Grilling</a>
+                        <a class="item-tags__link" href="#">Cooking</a>
+                        <a class="item-tags__link" href="#">Baking</a>
+                      </div>
+                      <div class="sidebar-tags__item item-tags">
+                        <a class="item-tags__link" href="#">Cuisines</a>
+                        <a class="item-tags__link" href="#">Chef</a>
+                        <a class="item-tags__link" href="#">Alcohol Mixing</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sidebar__item item-sidebar sidebar-share">
+                    <h5 class="item-sidebar__title sidebar-share__title">Share</h5>
+                    <div class="sidebar-share__socials">
+                      <a class="sidebar-share__link _icon-facebook" href="#"></a>
+                      <a class="sidebar-share__link _icon-twitter" href="#"></a>
+                      <a class="sidebar-share__link _icon-instagram" href="#"></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    @@include('html/_footer.htm',{})
+  </div>
+  @@include('html/_popup.htm',{})
+  @@include('html/_js.htm',{})
+</body>
+
+</html>

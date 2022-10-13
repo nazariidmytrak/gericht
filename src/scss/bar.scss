@@ -1,0 +1,567 @@
+//===================================================================================================
+
+//Bar
+.bar {
+  &__about {}
+
+  &__slider {
+    position: relative;
+  }
+
+  &__body {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 50%;
+      width: 1920px;
+      height: 14908px;
+      transform: translate(50%, 0px);
+      background: url('@img/wave-element.svg') 0 0 / 100% no-repeat;
+
+      @media (max-width:$tablet) {
+        display: none;
+      }
+    }
+  }
+}
+
+//===================================================================================================
+
+//Slider-bar
+@media (max-width: $tablet) {
+  .touch .slider-bar[data-fullscreen] {
+    min-height: 0; //Виключається повноекранний режим на планшеті
+  }
+}
+
+
+.slider-bar {
+  @include adaptiveValue("padding-top", 140, 60);
+  @include adaptiveValue("padding-bottom", 140, 60);
+  text-align: center;
+
+  @media (min-height:em(1400)) {
+    display: flex;
+    align-items: center;
+  }
+
+
+  &__container {
+    &_wide {
+      position: relative;
+    }
+  }
+
+  &__slider {}
+
+  &__wrapper {}
+
+  &__slide {}
+
+  &__scroll {
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @media (max-width:$tablet) {
+      display: none;
+    }
+  }
+
+  &__menu {}
+
+}
+
+.body-bar-slider {
+  &__controll {
+    @extend %cuf;
+    text-transform: uppercase;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+
+
+    @media (min-width:$tablet) {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      writing-mode: vertical-lr;
+    }
+
+    .swiper-pagination-bullet {
+      display: flex;
+      align-items: center;
+      gap: 0px;
+
+      font-weight: 600;
+      font-size: rem(25);
+      line-height: 1.75;
+      letter-spacing: 0.04em;
+      color: $mainWhite;
+      transition: gap 0.8s ease 0s;
+
+      &::after {
+        content: '';
+        background-color: #dcca87;
+        width: 16px;
+        height: 1px;
+        flex: 0 0 0px;
+        transition: all 0.8s ease 0s;
+
+        @media (min-width:$tablet) {
+          width: 1px;
+          height: 16px;
+          flex: 0 0 0px;
+        }
+      }
+    }
+
+    .swiper-pagination-bullet-active {
+      gap: 8px;
+
+      &::after {
+        @media (min-width:$tablet) {
+          height: 16px;
+          flex: 0 0 16px;
+        }
+
+        content: '';
+        height: 1;
+        flex: 0 0 16px;
+      }
+    }
+  }
+}
+
+.body-bar-slide {
+  position: relative;
+
+  &__image {
+
+    img {
+      border: 1px solid #DCCA87;
+      opacity: 0.7;
+      width: 640px;
+      max-width: 100%;
+      height: 840px;
+      max-height: calc(100vh - 280px);
+      object-fit: cover;
+
+      @media (max-width:$mobileSmall) {
+        min-height: 0;
+      }
+    }
+  }
+
+  &__text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @extend %cuf;
+    font-weight: 700;
+    @include adaptiveValue("font-size", 181, 60);
+    line-height: 1.3;
+    letter-spacing: 0.05em;
+    text-transform: capitalize;
+    color: $mainWhite;
+    cursor: pointer;
+    width: 100%;
+  }
+}
+
+.menu-bar-slider {
+  display: flex;
+  gap: rem(32);
+
+  &:not(:last-child) {
+    margin-bottom: 16px;
+  }
+
+  @media (min-width: $tablet) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: rem(40);
+  }
+
+  &__link {
+    font-size: rem(18);
+    line-height: 1.75;
+    letter-spacing: 0.04em;
+    color: $mainWhite;
+
+    @media (min-width: $tablet) {
+      writing-mode: vertical-lr;
+      transform: rotate(-180deg);
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: $mainYellow;
+      }
+    }
+
+    &_current {
+      color: $mainYellow;
+    }
+  }
+}
+
+//===================================================================================================
+
+//About-bar
+.about-bar {
+  @include adaptiveValue("padding-top", 128, 40);
+  @include adaptiveValue("padding-bottom", 128, 40);
+
+  &__container {
+    &[data-decor] {
+      &::before {
+        position: absolute;
+        left: rem(-150);
+        top: rem(-120);
+        z-index: 2;
+
+        @media (max-width: em(1330)) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__body {
+    display: grid;
+    align-items: end;
+
+    @media (min-width:$tablet) {
+      grid-template-columns: 523px 1fr;
+      @include adaptiveValue("gap", 143, 50, 1330, 991, 1);
+    }
+  }
+
+  &__image-ibg {
+    padding-bottom: percent(702, 523);
+
+    @media (max-width:$tablet) {
+      display: none;
+    }
+  }
+
+  &__content {}
+}
+
+.about-content {
+  padding-left: 20px;
+  display: grid;
+  gap: rem(40);
+
+  @media (max-width:$tablet) {
+    padding-left: 0;
+  }
+
+  &__image-ibg {
+    padding-bottom: percent(385, 634);
+  }
+
+  &__info {
+    display: grid;
+    gap: rem(40);
+
+    @media (max-width:$tablet) {
+      justify-items: center;
+      text-align: center;
+    }
+  }
+
+  &__header {}
+
+  &__text {
+    max-width: rem(523);
+  }
+
+  &__button {
+    justify-self: start;
+
+    @media (max-width:$tablet) {
+      justify-self: center;
+    }
+  }
+}
+
+//===================================================================================================
+
+//Poison
+.poison {
+  @include adaptiveValue("padding-top", 150, 40);
+  @include adaptiveValue("padding-bottom", 150, 40);
+
+  &__container {
+    display: grid;
+    @include adaptiveValue("gap", 64, 32);
+
+  }
+
+  &__header {}
+
+  &__items {
+    display: grid;
+    gap: 32px;
+
+    @media (min-width:$mobileSmall) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__item {}
+}
+
+.item-poison {
+  position: relative;
+
+  @media (any-hover: hover) {
+    &:hover {
+      .item-poison__text {
+        opacity: 1;
+      }
+
+      .item-poison__image {
+        img {
+          opacity: 0.4;
+        }
+      }
+    }
+  }
+
+  &__image-ibg {
+    display: block;
+    padding-bottom: percent(600, 412);
+
+    img {
+      border: 1px solid #DCCA87;
+      transition: all 0.5s ease 0s;
+    }
+  }
+
+  &__text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @extend %cuf;
+    font-weight: 600;
+    font-size: rem(45);
+    line-height: 1.3;
+    letter-spacing: 0.04em;
+    text-transform: capitalize;
+    color: $mainWhite;
+    opacity: 0;
+    transition: all 0.5s ease 0s;
+  }
+}
+
+//===================================================================================================
+
+//Hours
+.hours {
+  overflow: hidden;
+  position: relative;
+
+  &__info {
+    @include adaptiveValue("padding-top", 330, 100);
+    @include adaptiveValue("padding-bottom", 330, 100);
+    text-align: center;
+    display: grid;
+    @include adaptiveValue("gap", 32, 10);
+  }
+
+  &__title {
+    @extend %cuf;
+    font-weight: 600;
+    @include adaptiveValue("font-size", 128, 50);
+    line-height: 1.3;
+    letter-spacing: 0.03em;
+    text-transform: capitalize;
+    color: $mainYellow;
+  }
+
+  &__subtitle {
+    @extend %cuf;
+    font-weight: 700;
+    @include adaptiveValue("font-size", 32, 20);
+    line-height: 1.3;
+    letter-spacing: 0.04em;
+    text-transform: capitalize;
+    color: $mainWhite;
+  }
+
+  &__bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.4;
+  }
+}
+
+//===================================================================================================
+
+//Contact
+.contact-section {
+  @include adaptiveValue("padding-top", 150, 40);
+  @include adaptiveValue("padding-bottom", 150, 40);
+
+  &__container {
+    display: grid;
+    row-gap: 30px;
+
+    @media (min-width:$tablet) {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 80px;
+    }
+  }
+
+  &__column {
+    &:first-child {
+      justify-self: center;
+      text-align: center;
+      order: 1;
+
+      @media (min-width:$tablet) {
+        order: 0;
+        align-self: center;
+        text-align: left;
+      }
+    }
+
+    &:last-child {
+      justify-self: center;
+      order: 0;
+      align-self: center;
+
+      @media (min-width:$tablet) {
+        order: 1;
+      }
+    }
+  }
+
+  &__content {
+    display: grid;
+    @include adaptiveValue("gap", 64, 30);
+    padding-right: 40px;
+
+    @media (max-width:$tablet) {
+      padding-right: 0;
+    }
+  }
+
+  &__header {}
+
+  &__info {
+    display: grid;
+    gap: 32px;
+  }
+
+  &__info-text {
+    line-height: 1.75;
+  }
+
+  &__hours {
+    display: grid;
+    gap: 16px;
+  }
+
+  &__hours-title {
+    @extend %cuf;
+    font-weight: 700;
+    font-size: rem(23);
+    line-height: 1.3;
+    letter-spacing: 0.04em;
+    text-transform: capitalize;
+    color: $mainYellow;
+  }
+
+  &__hours-text {
+    line-height: 1.75;
+    color: $mainWhite;
+  }
+
+  &__button {
+    justify-self: start;
+
+    @media (max-width:$tablet) {
+      justify-self: center;
+    }
+  }
+
+  &__image {
+    display: inline-block;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      background-color: $mainYellow;
+      transition: transform 0.5s ease 0s;
+      width: percent(435, 619);
+      height: percent(435, 688);
+
+      @media (max-width:$tablet) {
+        display: none;
+      }
+    }
+
+    &::before {
+      content: '';
+      top: 0;
+      right: 0;
+      transform: translate(25px, -25px);
+    }
+
+    &::after {
+      content: '';
+      left: 0;
+      bottom: 0;
+      transform: translate(-25px, 25px);
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        &::before {
+          content: '';
+          transform: translate(36px, -36px);
+        }
+
+        &::after {
+          content: '';
+          transform: translate(-36px, 36px);
+        }
+
+        img {
+          transform: scale(1.05);
+        }
+      }
+    }
+
+    img {
+      max-width: 100%;
+      position: relative;
+      z-index: 2;
+      transition: transform 0.3s ease 0s;
+    }
+  }
+}

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/_head.htm',{
+"title":"Bar"
+})
+
+<body>
+  <div class="wrapper">
+    @@include('html/_header.htm',{
+
+    })
+    <main class="bar">
+
+      <section data-fullscreen data-bg class="bar__slider slider-bar">
+        <div class="slider-bar__container slider-bar__container_wide">
+          <nav class="slider-bar__menu menu-bar-slider">
+            <a class="menu-bar-slider__link" href="#">#Gericht</a>
+            <a class="menu-bar-slider__link menu-bar-slider__link_current" href="bar.html">#Bar</a>
+          </nav>
+          <!-- Оболочка слайдера -->
+          <div class="slider-bar__slider body-bar-slider swiper">
+            <!-- Двигающееся часть слайдера -->
+            <div class="slider-bar__wrapper body-bar-wrapper swiper-wrapper">
+              <!-- Слайд -->
+              <div class="slider-bar__slide body-bar-slide swiper-slide ">
+                <a href="#" class="body-bar-slide__image">
+                  <img data-src="@img/bar/slider/01.jpg" class=" swiper-lazy" alt="#">
+                </a>
+                <div class="body-bar-slide__text">On The Rocks</div>
+              </div>
+              <!-- Слайд -->
+              <div class="slider-bar__slide body-bar-slide swiper-slide ">
+                <a href="#" class="body-bar-slide__image">
+                  <img data-src="@img/bar/slider/02.jpg" class="swiper-lazy" alt="#">
+                </a>
+                <div class="body-bar-slide__text">On The Rocks</div>
+              </div>
+            </div>
+            <div class="body-bar-slider__controll"></div>
+            <button data-goto="#book-section" type="button" class="slider-bar__scroll scroll">Scroll</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="bar__body">
+        <section class="book" id="book-section">
+          <div data-decor class="book__container">
+            <div class="book__body">
+              <div class="book__header block-header">
+                <div class="block-header__sup-title">Reservations</div>
+                <h2 class="block-header__title">Book A Table</h2>
+              </div>
+              <form data-dev data-popup-message="#formMessage" class="book__form form-book" action="#">
+                <div class="form-book__lines">
+                  <div class="form-book__line">
+                    <select data-scroll name="form[]" data-class-modif="form">
+                      <option value="1" selected>1 Person</option>
+                      <option value="2">2 Person</option>
+                      <option value="3">3 Person</option>
+                      <option value="4">4 Person</option>
+                    </select>
+                  </div>
+                  <div class="form-book__line">
+                    <div class="form-book__input _icon-select-arrow">
+                      <input data-datepicker autocomplete="off" type="text" name="form[]" data-error="Ошибка"
+                        data-required placeholder="12.05.21" class="input-dark">
+                    </div>
+                  </div>
+                  <div class="form-book__line">
+                    <select data-scroll name="form[]" data-class-modif="form">
+                      <option value="1" selected>11:00 AM</option>
+                      <option value="2">12:00 AM</option>
+                      <option value="3">1:00 PM</option>
+                      <option value="4">2:00 PM</option>
+                      <option value="5">3:00 PM</option>
+                      <option value="6">4:00 PM</option>
+                      <option value="7">5:00 PM</option>
+                      <option value="8">6:00 PM</option>
+                      <option value="9">7:00 PM</option>
+                      <option value="10">8:00 PM</option>
+                    </select>
+                  </div>
+                </div>
+                <button type="submit" class="book__button button">Book Now</button>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <section data-bg class="bar__about about-bar">
+          <div data-decor class="about-bar__container">
+            <div class="about-bar__body">
+              <div class="about-bar__image-ibg">
+                <img src="@img/bar/about/about-big.jpg" alt="">
+              </div>
+              <div class="about-bar__content about-content">
+                <div class="about-content__image-ibg">
+                  <img src="@img/bar/about/about-small.jpg" alt="">
+                </div>
+                <div class="about-content__info">
+                  <div class="about-content__header block-header block-header_left">
+                    <div class="block-header__sup-title">About Us</div>
+                    <h2 class="block-header__title">Food, Drinks, entertainment in one</h2>
+                  </div>
+                  <div class="about-content__text">Adipiscing tempus ullamcorper lobortis odio tellus arcu volutpat.
+                    Risus
+                    placerat morbi volutpat habitasse interdum mi aliquam In sed odio nec aliquet.</div>
+                  <div class="about-content__button button">Know More</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="poison">
+          <div class="poison__container">
+            <div class="poison__header block-header">
+              <div class="block-header__sup-title">Wide Range to choose from</div>
+              <h2 class="block-header__title">What’s Your Poison?</h2>
+            </div>
+            <div class="poison__items">
+              <div class="poison__item item-poison">
+                <a href="#" class="item-poison__image-ibg">
+                  <img data-src="@img/bar/poison/beer.jpg" alt="beer">
+                </a>
+                <div class="item-poison__text">Beer</div>
+              </div>
+              <div class="poison__item item-poison">
+                <a href="#" class="item-poison__image-ibg">
+                  <img data-src="@img/bar/poison/wine.jpg" alt="wine">
+                </a>
+                <div class="item-poison__text">wine</div>
+              </div>
+              <div class="poison__item item-poison">
+                <a href="#" class="item-poison__image-ibg">
+                  <img data-src="@img/bar/poison/cocktail.jpg" alt="cocktail">
+                </a>
+                <div class="item-poison__text">cocktail</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="hours">
+          <div class="hours__container">
+            <div class="hours__info">
+              <h3 class="hours__title">Happy Hours</h3>
+              <div class="hours__subtitle">Monday - Friday(4:00 Pm - 7:00 pm)</div>
+            </div>
+          </div>
+          <div class="hours__bg">
+            <img src="@img/bar/hours/hours-bg.jpg" alt="">
+          </div>
+        </section>
+
+        <section class="special">
+          <div data-decor class="special__container special__container_bar">
+            <div class="special__header block-header">
+              <div class="block-header__sup-title">Menu that fits you palatte</div>
+              <h2 class="block-header__title">Today’s Special</h2>
+            </div>
+            <div class="special__body">
+              <div class="special__table table-special">
+                <h3 class="table-special__title">Wine & Beer</h3>
+                <div class="table-special__body">
+                  <div class="table-special__item">
+                    <div class="table-special__header">
+                      <div class="table-special__value">Chapel Hill Shiraz</div>
+                      <div class="table-special__price">$56</div>
+                    </div>
+                    <div class="table-special__info">AU | Bottle</div>
+                  </div>
+                  <div class="table-special__item">
+                    <div class="table-special__header">
+                      <div class="table-special__value">Catena Malbec</div>
+                      <div class="table-special__price">$59</div>
+                    </div>
+                    <div class="table-special__info">AR | Bottle</div>
+                  </div>
+                  <div class="table-special__item">
+                    <div class="table-special__header">
+                      <div class="table-special__value">La Vieille Rosé</div>
+                      <div class="table-special__price">$44</div>
+                    </div>
+                    <div class="table-special__info">FR | 750 ml</div>
+                  </div>
+                  <div class="table-special__item">
+                    <div class="table-special__header">
+                      <div class="table-special__value">Rhino Pale Ale</div>
+                      <div class="table-special__price">$31</div>
+                    </div>
+                    <div class="table-special__info">CA | 750 ml</div>
+                  </div>
+                  <div class="table-special__item">
+                    <div class="table-special__header">
+                      <div class="table-special__value">Irish Guinness
+                      </div>
+                      <div class="table-special__price">$26</div>
+                    </div>
+                    <div class="table-special__info">IE | 750 ml</div>
+                  </div>
+                </div>
+              </div>
+              <div class="special__image">
+                <img src="@img/mainpage/special/shaker.png" alt="cocktail-shaker">
+              </div>
+              <div class="special__table table-special">
+                <h3 class="table-special__title">Cocktails</h3>
+                <div class="table-special__body">
+                  <div class="table-special__item">
+                    <div class="table-special__header">
+                      <div class="table-special__value">Aperol Spritz
+                      </div>
+                      <div class="table-special__price">$20</div>
+                    </div>
+                    <div class="table-special__info">Aperol | Villa Marchesi prosecco | soda | 30ml</div>
+                  </div>
+                  <div class="table-special__item">
+                    <div class="table-special__header">
+                      <div class="table-special__value">Dark 'N' Stormy
+                      </div>
+                      <div class="table-special__price">$16</div>
+                    </div>
+                    <div class="table-special__info">Dark rum | Ginger beer | Slice of lime. </div>
+                  </div>
+                  <div class="table-special__item">
+                    <div class="table-special__header">
+                      <div class="table-special__value">Daiquiri
+                      </div>
+                      <div class="table-special__price">$10</div>
+                    </div>
+                    <div class="table-special__info">Rum | Citrus juice | Sugar</div>
+                  </div>
+                  <div class="table-special__item">
+                    <div class="table-special__header">
+                      <div class="table-special__value">Old Fashioned
+                      </div>
+                      <div class="table-special__price">$31</div>
+                    </div>
+                    <div class="table-special__info">Bourbon | Brown sugar | Angostura Bitters</div>
+                  </div>
+                  <div class="table-special__item">
+                    <div class="table-special__header">
+                      <div class="table-special__value">Negroni
+                      </div>
+                      <div class="table-special__price">$26</div>
+                    </div>
+                    <div class="table-special__info">Gin | Sweet Vermouth | Campari | Orange garnish</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a class="special__button button" href="#">View More</a>
+          </div>
+        </section>
+
+        <section data-bg class="contact-section">
+          <div class="contact-section__container">
+            <div class="contact-section__column">
+              <div class="contact-section__content">
+                <div class="contact-section__header block-header block-header_left">
+                  <div class="block-header__sup-title">Contact</div>
+                  <h2 class="block-header__title">Find Us</h2>
+                </div>
+                <div class="contact-section__info">
+                  <div class="contact-section__info-text">Lane Ends Bungalow, Whatcroft Hall Lane, Rudheath, CW9 7SG
+                  </div>
+                  <div class="contact-section__hours">
+                    <h5 class="contact-section__hours-title">Opening Hours</h5>
+                    <div class="contact-section__hours-text">Mon - Fri: 10:00 am - 02:00 am</div>
+                    <div class="contact-section__hours-text">Sat - Sun: 10:00 am - 03:00 am</div>
+                  </div>
+                </div>
+                <div class="contact-section__button button">Visit Us</div>
+              </div>
+            </div>
+            <div class="contact-section__column">
+              <div class="contact-section__image">
+                <img src="@img/bar/contact/contact-main.jpg" alt="">
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+    </main>
+    @@include('html/_footer.htm',{})
+  </div>
+  @@include('html/_popup.htm',{})
+  @@include('html/_js.htm',{})
+</body>
+
+</html>

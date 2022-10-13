@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/_head.htm',{
+"title":"FAQ"
+})
+
+<body>
+  <div class="wrapper">
+    @@include('html/_header.htm',{})
+    <main class="faq-main">
+
+      <section class="hero">
+        <div class="hero__content">
+          <h2 class="hero__title">Frequently Asked Questions</h2>
+          <div class="hero__breadcrumbs">
+            <a class="hero__link" href="index.html">Home</a>
+            <a class="hero__link" href="#">FAQ</a>
+          </div>
+        </div>
+        <div class="hero__image-ibg">
+          <img data-src="@img/hero.jpg" alt="">
+        </div>
+      </section>
+
+      <div class="faq">
+        <div class="faq__container">
+          <div class="faq__column">
+            <div class="faq__image">
+              <img data-src="@img/faq/faq-img.jpg" alt="">
+            </div>
+          </div>
+          <div class="faq__column">
+            <div data-spollers data-spollers-speed="1000" data-one-spoller class="accordion">
+              <div class="accordion__item">
+                <button type="button" data-spoller class="accordion__title _spoller-active">How do i
+                  reach to the
+                  restaurant?</button>
+                <div class="accordion__body">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
+                  Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</div>
+              </div>
+              <div class="accordion__item">
+                <button type="button" data-spoller class="accordion__title">Is there a reservation required?</button>
+                <div class="accordion__body">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
+                  Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</div>
+              </div>
+              <div class="accordion__item">
+                <button type="button" data-spoller class="accordion__title">Can i host an event at The
+                  restaurant?</button>
+                <div class="accordion__body">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
+                  Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</div>
+              </div>
+              <div class="accordion__item">
+                <button type="button" data-spoller class="accordion__title">Is valet parking available at the
+                  restaurant?</button>
+                <div class="accordion__body">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
+                  Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</div>
+              </div>
+              <div class="accordion__item">
+                <button type="button" data-spoller class="accordion__title">When are the happy hours of your
+                  bar?</button>
+                <div class="accordion__body">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
+                  Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</div>
+              </div>
+              <div class="accordion__item">
+                <button type="button" data-spoller class="accordion__title">Is seafood available at the
+                  restaurant?</button>
+                <div class="accordion__body">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
+                  Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+    @@include('html/_footer.htm',{})
+  </div>
+  @@include('html/_popup.htm',{})
+  @@include('html/_js.htm',{})
+</body>
+
+</html>

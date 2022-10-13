@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/_head.htm',{
+"title":"Contact"
+})
+
+<body>
+  <div class="wrapper">
+    @@include('html/_header.htm',{})
+    <main class="contact">
+      <section class="hero">
+        <div class="hero__content">
+          <h2 class="hero__title">Contact Us</h2>
+          <div class="hero__breadcrumbs">
+            <a class="hero__link" href="index.html">Home</a>
+            <a class="hero__link" href="#">Contact Us</a>
+          </div>
+        </div>
+        <div class="hero__image-ibg">
+          <img data-src="@img/hero.jpg" alt="">
+        </div>
+      </section>
+
+      <div class="contact__body">
+        <!-- <div class="map">
+          <div class="map__container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8921.596829723776!2d-122.44830688788431!3d37.76048238890735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f7e1b3606d49d%3A0xc9a66606d5327c89!2sThe%20Castro%2C%20San%20Francisco%2C%20CA%2094114%2C%20USA!5e0!3m2!1sen!2sua!4v1664876511734!5m2!1sen!2sua"
+              width="1300" height="500" style="border:1px solid #dcca87;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div> -->
+        <div data-bg class='subscribe'>
+          <div class="subscribe__container">
+            <div class="subscribe__column">
+              <form data-dev data-popup-message="#subscribeFormMessage" action="#"
+                class="subscribe__form form-subscribe">
+                <div class="form-subscribe__lines">
+                  <div class="form-subscribe__line">
+                    <input class="form-subscribe__input" autocomplete="off" type="text" name="form[]"
+                      data-error="Ошибка" placeholder="Full Name" class="input" data-required>
+                  </div>
+                  <div class="form-subscribe__line">
+                    <input class="form-subscribe__input" autocomplete="off" type="email" name="form[]"
+                      data-error="Ошибка" placeholder="Email Address" class="input" data-required>
+                  </div>
+                  <div class="form-subscribe__line">
+                    <textarea class="form-subscribe__input
+                    form-subscribe__textarea" placeholder="message" name="message" id="message"></textarea>
+                  </div>
+                  <button type=" submit" class="form-subscribe__button button">Subscribe</button>
+                </div>
+              </form>
+            </div>
+            <div class="subscribe__column">
+              <div class="subscribe__image-ibg">
+                <img data-src="@img/contact/subscribe/main.jpg" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+    @@include('html/_footer.htm',{})
+  </div>
+  @@include('html/_popup.htm',{})
+  @@include('html/_js.htm',{})
+</body>
+
+</html>

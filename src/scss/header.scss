@@ -1,0 +1,272 @@
+//====================================================================================================
+
+//////////////////////////////Header
+.header {
+	color: #FFFFFF;
+	padding: 10px 0;
+	text-transform: capitalize;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 50;
+
+	&._header-scroll {
+		position: fixed;
+		top: -200%;
+		// transform: translate(0px, -100%);
+		background-color: rgba(0, 0, 0, 0.9);
+	}
+
+	&._header-show {
+		transition: top 0.3s ease 0s;
+		top: 0;
+		// transform: translate(0px, 0px);
+	}
+
+	&__container {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		@include adaptiveValue("min-height", 121, 50);
+
+		._header-scroll & {
+			@include adaptiveValue("min-height", 80, 50);
+		}
+
+		@media (max-width:$mobile) {
+			gap: 25px;
+		}
+
+		&_wide {}
+
+	}
+
+	&__column {
+		flex-grow: 0;
+		flex-shrink: 0;
+		@include adaptiveValue("flex-basis", 300, 180, 1330, 768, 2);
+
+		&_wide {
+			flex: 1 1 auto;
+		}
+
+		&_auth {
+			align-self: stretch;
+		}
+	}
+
+	&__logo {
+		position: relative;
+		z-index: 2;
+		font-weight: 700;
+		line-height: 1.3;
+		@extend %cuf;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+
+		@include adaptiveValue("font-size", 44, 35, 1330, 768, 1);
+	}
+
+	&__menu {}
+
+	&__auth {}
+}
+
+//////////////////////////////Menu
+.menu {
+
+	&__icon {}
+
+	&__body {
+		@media (max-width:$mobile) {
+			overflow: auto;
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: -100%;
+			transition: left 0.3s ease 0s;
+			background-color: #040404;
+			@include adaptiveValue("padding-top", 170, 100);
+			padding-bottom: rem(30);
+			padding-left: rem(15);
+			padding-right: rem(15);
+
+			&::before {
+				content: '';
+				position: fixed;
+				top: -100%;
+				width: 100%;
+				background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+				transition: top 0.3s ease 0s;
+				left: -0;
+				@include adaptiveValue("height", 171, 100);
+			}
+
+			.menu-open & {
+				left: 0;
+
+				&::before {
+					top: 0;
+
+				}
+			}
+		}
+	}
+
+	&__list {
+		flex-wrap: wrap;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		row-gap: 5px;
+		@include adaptiveValue("column-gap", 32, 15, 1330, 768, 1);
+
+		@media (max-width:$mobile) {
+			flex-direction: column;
+
+			&:not(:last-child) {
+				margin-bottom: rem(50);
+			}
+		}
+	}
+
+	&__item {}
+
+	&__link {
+		line-height: 1.75;
+		letter-spacing: 0.04em;
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: $mainYellow;
+			}
+		}
+
+		@media (max-width:$mobile) {
+			font-size: rem(30);
+		}
+	}
+}
+
+//////////////////////////////Icon-menu
+.icon-menu {}
+
+//////////////////////////////Auth-header
+.auth-header {
+	display: flex;
+	align-self: stretch;
+	justify-content: center;
+	row-gap: 5px;
+	height: 100%;
+	@include adaptiveValue("column-gap", 50, 20, 1330, 1150, 1);
+
+	@media (max-width: em(1150)) {
+		flex-direction: column;
+		align-items: flex-end;
+	}
+
+	@media (min-width:em(1150)) {
+		padding: 22px 0;
+		justify-content: flex-end;
+	}
+
+	@media (max-width:$mobileSmall) {
+		align-items: center;
+	}
+
+	&__item {
+		display: flex;
+		position: relative;
+		align-items: center;
+
+		@media (min-width:em(1150)) {
+			&:not(:last-child) {
+				&::before {
+					content: '';
+					position: absolute;
+					top: 0;
+					@include adaptiveValue("right", -24, -10, 1330, 1150, 1);
+					width: 1px;
+					height: 100%;
+					background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 1%, rgba(255, 255, 255, 1) 38%, rgba(255, 255, 255, 1) 51%, rgba(255, 255, 255, 1) 67%, rgba(255, 255, 255, 0) 100%);
+				}
+			}
+		}
+	}
+
+	&__link {
+		line-height: 1.3;
+		text-align: center;
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: $mainYellow;
+			}
+		}
+
+		@media (max-width:$mobileSmall) {
+			font-size: rem(28);
+		}
+	}
+}
+
+//====================================================================================================
+//Burger
+
+.icon-menu {
+	display: none;
+
+	@media (max-width: $mobile) {
+		display: block;
+		position: relative;
+		flex: 0 0 40px;
+		height: rem(22.5);
+		cursor: pointer;
+		z-index: 5;
+
+		span,
+		&::before,
+		&::after {
+			content: "";
+			transition: all 0.3s ease 0s;
+			right: 0;
+			position: absolute;
+			width: 100%;
+			height: rem(2);
+			background-color: #fff;
+		}
+
+		&::before {
+			top: 0;
+		}
+
+		&::after {
+			bottom: 0;
+		}
+
+		span {
+			top: calc(50% - rem(1));
+		}
+
+		.menu-open & {
+			span {
+				width: 0;
+			}
+
+			&::before,
+			&::after {}
+
+			&::before {
+				top: calc(50% - rem(1));
+				transform: rotate(-45deg);
+			}
+
+			&::after {
+				bottom: calc(50% - rem(1));
+				transform: rotate(45deg);
+			}
+		}
+	}
+}

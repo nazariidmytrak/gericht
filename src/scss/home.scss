@@ -1,0 +1,1275 @@
+//====================================================================================================
+.mainpage {
+  &__body {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 50%;
+      width: 1920px;
+      height: 14908px;
+      transform: translate(50%, 0px);
+      background: url('@img/wave-element.svg') 0 0 / 100% no-repeat;
+    }
+  }
+
+
+  &__slider {}
+
+  &__about {}
+}
+
+@media (max-width: $tablet) {
+  .touch .main-slider[data-fullscreen] {
+    min-height: 0; //Виключається повноекранний режим на планшеті
+  }
+}
+
+//Slider
+.main-slider {
+  @include adaptiveValue("padding-top", 185, 80); // 120 header + 20 padding + 70 від header до mainpage; 50 header-+ 20 padding + 70 від header до mainpage ; Відняли і тут і там по 25рх і добавили в slide-main-slider;
+  @include adaptiveValue("padding-bottom", 70, 30);
+  display: flex;
+
+  &__container {
+    &:not(.main-slider__container_wide) {
+      padding: 0; //Для адаптива меню
+    }
+
+    &_wide {
+      position: relative;
+      flex: 1 1 auto;
+      min-width: 0; //Починає мінятись ширина слайдера на адаптиві
+    }
+  }
+
+  &__menu {}
+
+  &__scroll {
+    @media (min-width:em(1445)) {
+      position: absolute;
+      right: rem(15);
+      bottom: 0;
+    }
+
+    @media (max-width: em(1445)) {
+      display: block;
+      padding-top: rem(15);
+
+      @media (max-width:$tablet) {
+        display: none;
+      }
+
+      &::before {
+        content: '';
+        display: none;
+      }
+    }
+  }
+}
+
+.body-main-slider {
+  @media (min-width:$tablet) {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &.swiper {
+    overflow: visible; //На планшеті картинка буде плотно прилягати до краю екрана без падінгів
+  }
+
+
+  &__wrapper {
+    flex: 1 1 auto;
+    align-items: center;
+  }
+
+  &__slide {
+    @media (min-width: $tablet) {
+      height: 100%;
+    }
+  }
+
+  &__controll {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    @extend %cuf;
+
+    @media (min-width:$tablet) {
+      padding-top: rem(88);
+      //Буде тільки після 1445
+    }
+
+    @media (max-width: em(1445)) and (min-width: $tablet) {
+      padding-top: rem(15);
+      //Такий падінг буде тільки між планшетом і 1445
+    }
+
+    .swiper-pagination-bullet {
+      display: flex;
+      align-items: center;
+      gap: 0px;
+
+      font-weight: 600;
+      font-size: rem(20);
+      line-height: 1.75;
+      letter-spacing: 0.04em;
+      color: $mainWhite;
+      transition: gap 0.8s ease 0s;
+
+      &::after {
+        content: '';
+        background-color: #dcca87;
+        width: 0px;
+        height: 1px;
+        flex: 0 0 0px;
+        transition: all 0.8s ease 0s;
+      }
+    }
+
+    .swiper-pagination-bullet-active {
+      gap: 8px;
+
+      &::after {
+        content: '';
+        width: 16px;
+        flex: 0 0 16px;
+      }
+    }
+  }
+}
+
+.slide-main-slider {
+  padding: 25px 0 0 0;
+  opacity: 0;
+  pointer-events: none;
+
+  @media (max-width:em(1445)) {
+    padding: rem(50) 0 rem(40) 0;
+  }
+
+  @media (min-width:$tablet) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &.swiper-slide-active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &__content {
+    display: grid;
+    align-self: center;
+    gap: 32px;
+    justify-items: start;
+
+    @media (min-width:$tablet) {
+      padding-right: rem(40); //padding безпеки
+      max-width: rem(500);
+    }
+
+    @media (max-width:$tablet) {
+      &:not(:last-child) {
+        margin-bottom: rem(40);
+      }
+    }
+
+    @media (max-width:$mobile) {
+      justify-items: stretch;
+    }
+  }
+
+  &__header {}
+
+  &__text {}
+
+  &__button {}
+
+  &__image-ibg {
+    position: relative;
+    align-self: center;
+    padding-bottom: percent(619, 688);
+
+    @media (min-width:$tablet) {
+      height: 100%;
+      max-height: 736px;
+      margin-right: percent(25, 650); //Відступ справа для декору
+    }
+
+    @media (max-width:$tablet) {
+      margin: 0px rem(math.div($containerPadding, -2));
+      // Відняли в картинки падінг по бокам і поставили свайперу visible
+      //  щоб на планшеті картинка прилягала по бокам екрану без декору
+      display: block;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      background-color: $mainYellow;
+      width: percent(435, 619);
+      height: percent(435, 688);
+      transition: transform 0.3s ease 0s;
+    }
+
+    &::before {
+      top: 0;
+      right: 0;
+      transform: translate(25px, -25px);
+
+      @media (max-width:$mobile) {
+        transform: translate(12.5px, -12.5px);
+      }
+    }
+
+    &::after {
+      left: 0;
+      bottom: 0;
+      transform: translate(-25px, 25px);
+
+      @media (max-width:$mobile) {
+        transform: translate(-12.5px, 12.5px);
+      }
+    }
+
+    img {
+      transition: transform 0.3s ease 0s;
+      z-index: 2;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        &::before {
+          transform: translate(30px, -30px);
+        }
+
+        &::after {
+          transform: translate(-30px, 30px);
+        }
+
+        img {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+}
+
+.menu-main-slider {
+  display: flex;
+  gap: rem(40);
+  position: absolute;
+  left: rem(15); //Через padding у wide контейнера
+  top: 0;
+  z-index: 2;
+
+  @media (min-width:em(1445)) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  &__link {
+    font-size: rem(18);
+    line-height: 1.75;
+    letter-spacing: 0.04em;
+    color: $mainWhite;
+
+    @media (min-width:em(1445)) {
+      writing-mode: vertical-lr;
+      transform: rotate(-180deg);
+    }
+
+    //snnipet 'hhv'
+    @media (any-hover: hover) {
+      &:hover {
+        color: $mainYellow;
+      }
+    }
+
+    &_current {
+      color: $mainYellow;
+    }
+
+  }
+}
+
+//===================================================================================================
+
+//About-section
+.about-section {
+  @include adaptiveValue("padding-top", 128, 40);
+  @include adaptiveValue("padding-bottom", 128, 40);
+  position: relative;
+
+  &::after {
+    content: 'G';
+    @extend %cuf;
+    font-weight: 700;
+    color: #272727;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include adaptiveValue("font-size", 650, 500);
+  }
+
+  &__container {
+    position: relative;
+    z-index: 2;
+
+    @media (min-width:$mobile) {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__content {
+    display: grid;
+    gap: 32px;
+    align-content: start;
+    justify-items: start;
+
+    &:first-child {
+      @media (min-width:$mobile) {
+        text-align: right;
+        justify-items: end;
+
+        .about-section__title {
+          justify-items: end;
+
+          &::after {
+            transform: rotate(-180deg)
+          }
+        }
+      }
+    }
+
+    @media (max-width:$mobile) {
+      justify-items: center;
+      align-items: center;
+      text-align: center;
+
+      &:not(:last-child) {
+        margin-bottom: rem(30)
+      }
+
+      .about-section__title {
+        justify-items: center;
+      }
+    }
+
+  }
+
+  &__title {
+    @extend %cuf;
+    font-weight: 600;
+    @include adaptiveValue("font-size", 64, 40, 1330, 768, 1);
+    line-height: 1.3;
+    letter-spacing: 0.04em;
+    color: $mainYellow;
+    display: grid;
+    gap: 8px;
+
+    &::after {
+      content: '';
+      @extend %ic;
+      content: '\e904';
+      color: $mainYellow;
+      font-size: em(9, 64);
+    }
+  }
+
+  &__text {
+    @media (min-width:$mobile) {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+    }
+  }
+
+  &__knife {
+    flex: 0 0 percent(255, 1300);
+    text-align: center;
+    padding: 0px rem(15);
+
+    @media (max-width:$mobile) {
+      display: none;
+    }
+  }
+
+  &__img {
+    max-width: 100%;
+  }
+}
+
+//===================================================================================================
+
+//Book
+.book {
+  position: relative;
+  @include adaptiveValue("padding-top", 150, 0);
+  @include adaptiveValue("padding-bottom", 150, 0);
+
+
+
+  &__container {
+    &[data-decor] {
+      &::before {
+        position: absolute;
+        top: rem(-170);
+        right: rem(-150);
+
+        @media (max-width:$pc) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__body {
+    background: #0C0C0C;
+    border: 1px solid rgba(220, 202, 135, 0.2);
+    box-shadow: 22px 30px 95px 1px rgba(0, 0, 0, 0.7);
+
+    padding: 0 rem(32);
+    @include adaptiveValue("padding-top", 48, 20);
+    @include adaptiveValue("padding-bottom", 48, 40);
+
+    @media (min-width:em(1390)) {
+      margin: 0 rem(-32);
+    }
+
+    @media (max-width:$tablet) {
+      border-right: none;
+      border-left: none;
+      margin: 0 rem(-15);
+    }
+  }
+
+  &__header {}
+
+  &__form {
+    text-align: center;
+  }
+
+  &__button {}
+}
+
+.form-book {
+
+  &__lines {
+    display: grid;
+    row-gap: 20px;
+    @include adaptiveValue("padding-top", 64, 20);
+    @include adaptiveValue("padding-bottom", 64, 20);
+
+    @media (min-width:$tablet) {
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 32px;
+    }
+  }
+
+  &__line {}
+
+  &__input {
+    position: relative;
+
+    &::before {
+      position: absolute;
+      top: rem(25);
+      right: rem(16);
+      font-size: rem(10);
+      transition: transform 0.3s ease 0s;
+    }
+
+    &._form-focus {
+      &::before {
+        transform: rotate(-180deg);
+      }
+    }
+
+    .form__error {
+      color: red;
+      font-size: rem(15);
+      margin-top: 5px;
+
+      @media (min-width:$tablet) {
+        position: absolute;
+        bottom: -25px;
+      }
+    }
+  }
+}
+
+//===================================================================================================
+
+//Menu-block
+.menu-block {
+  position: relative;
+  overflow: hidden;
+
+  &__bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width:$tablet) {
+      img {
+        opacity: 0.5;
+      }
+    }
+  }
+
+
+  &__container {
+
+    &_wide {
+      position: relative;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        @media (max-width: em(1024)) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__menu {
+    @include adaptiveValue("padding-top", 260, 40);
+    @include adaptiveValue("padding-bottom", 260, 40);
+  }
+
+  &__list {
+    display: grid;
+    @include adaptiveValue("grid", 65, 30);
+
+    @media (max-width:$tablet) {
+      justify-content: center;
+      text-align: center;
+    }
+  }
+
+  &__item {}
+
+  &__link {
+    position: relative;
+    @extend %cuf;
+    font-weight: 600;
+    @include adaptiveValue("font-size", 64, 30);
+    color: $mainWhite;
+    line-height: 1.3;
+    letter-spacing: 0.03em;
+    text-transform: capitalize;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: $mainYellow;
+      transition: width 0.3s ease 0s;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: $mainYellow;
+
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+//===================================================================================================
+
+//Special
+.special {
+  @include adaptiveValue("padding-top", 150, 40);
+  @include adaptiveValue("padding-bottom", 150, 40);
+
+  &__container {
+    display: grid;
+    @include adaptiveValue("gap", 65, 30);
+  }
+
+  &__container_bar {
+    &[data-decor] {
+      &::before {
+        position: absolute;
+        top: -58px;
+        right: -103px;
+
+        @media (max-width: em(1550)) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__header {}
+
+  &__body {
+    display: grid;
+    gap: 32px;
+
+    @media (min-width:$mobile) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width:$tablet) and (min-width:$mobile) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__table {}
+
+  &__image {
+    img {
+      max-width: 100%; //Позволяє картинці зменшуватись
+    }
+
+    @media (max-width:$tablet) {
+      display: none;
+    }
+  }
+
+  &__button {
+    justify-self: center;
+  }
+}
+
+.table-special {
+
+  &__title {
+    text-align: center;
+    color: $mainWhite;
+    @extend %cuf;
+    @include adaptiveValue("font-size", 45, 35);
+    font-weight: 600;
+    line-height: 1.3;
+
+    &:not(:last-child) {
+      margin-bottom: em(48, 45);
+    }
+  }
+
+  &__body {
+    display: grid;
+    gap: 40px;
+    align-items: start;
+    @include adaptiveValue("gap", 40, 20);
+  }
+
+  &__item {
+    display: grid;
+    gap: 8px;
+  }
+
+  &__header {
+    display: grid;
+    grid-template-columns: 1fr 70px;
+    justify-content: space-between;
+    position: relative;
+    @include adaptiveValue("font-size", 23, 18);
+
+    >* {
+      z-index: 2;
+      position: relative;
+    }
+
+    @media (min-width:$mobileSmall) {
+      position: relative;
+      grid-template-columns: 225px 70px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        top: 10px;
+        left: 0;
+        background-color: $mainWhite;
+      }
+    }
+  }
+
+  &__value {
+    padding: 0px rem(10) 0px 0px;
+    @extend %cuf;
+    font-weight: 600;
+    line-height: 1.3;
+    color: $mainDarkYellow;
+
+    @media (min-width:$mobileSmall) {
+      background-color: $mainColorDark;
+    }
+  }
+
+  &__price {
+    padding: 0px 0px 0px rem(10);
+    text-align: right;
+    color: $mainWhite;
+    @extend %cuf;
+
+    @media (min-width:$mobileSmall) {
+      background-color: $mainColorDark;
+    }
+  }
+
+  &__info {
+    line-height: 1.5;
+  }
+}
+
+//===================================================================================================
+
+//Chef
+.chef {
+  @include adaptiveValue("padding-top", 150, 40);
+  @include adaptiveValue("padding-bottom", 150, 40);
+
+  &__container {
+    display: grid;
+    row-gap: 30px;
+
+    @media (min-width:$tablet) {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 80px;
+    }
+  }
+
+  &__column {
+    &:first-child {
+      text-align: center;
+    }
+
+    &:last-child {
+      align-self: center;
+    }
+  }
+
+  &__image {
+    position: relative;
+    display: inline-block;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      background-color: $mainYellow;
+      transition: transform 0.5s ease 0s;
+      width: percent(435, 619);
+      height: percent(435, 688);
+
+      @media (max-width:$tablet) {
+        display: none;
+      }
+    }
+
+    &::before {
+      content: '';
+      top: 0;
+      right: 0;
+      transform: translate(25px, -25px);
+    }
+
+    &::after {
+      content: '';
+      left: 0;
+      bottom: 0;
+      transform: translate(-25px, 25px);
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        &::before {
+          content: '';
+          transform: translate(36px, -36px);
+        }
+
+        &::after {
+          content: '';
+          transform: translate(-36px, 36px);
+        }
+
+        img {
+          transform: scale(1.05);
+        }
+      }
+    }
+
+    img {
+      max-width: 100%;
+      position: relative;
+      z-index: 2;
+      transition: transform 0.3s ease 0s;
+    }
+  }
+
+  &__content {
+    display: grid;
+    @include adaptiveValue("gap", 64, 40);
+    @include adaptiveValue("padding-left", 40, 0);
+  }
+
+  &__header {}
+
+  &__header-title {
+    @include adaptiveValue("font-size", 64, 48, 1300, 992, 1);
+    @include adaptiveValue("font-size", 48, 33, 991, 320, 1);
+  }
+
+  &__text {
+    font-style: italic;
+
+    &::before {
+      display: inline-block;
+      font-size: rem(40);
+      color: $mainWhite;
+      margin-right: em(10, 40);
+    }
+  }
+
+  &__info {}
+}
+
+.info-chef {
+
+  &__title {
+    color: $mainDarkYellow;
+    @extend %cuf;
+    font-size: rem(32);
+    line-height: 1.3;
+  }
+
+  &__text {}
+
+  &__signature {}
+}
+
+//===================================================================================================
+
+//Testimony
+.testimony {
+  @include adaptiveValue("padding-top", 150, 40);
+  @include adaptiveValue("padding-bottom", 150, 40);
+
+
+  &__container {}
+
+  &__header {
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 64, 32);
+    }
+  }
+
+  &__items {
+    display: grid;
+    column-gap: 32px;
+    @include adaptiveValue("row-gap", 64, 45);
+
+    @media (min-width:$tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: 190px 1fr;
+    gap: 32px;
+
+    @media (max-width:$mobileSmall) {
+      flex-direction: column;
+      text-align: center;
+      grid-template-columns: auto;
+    }
+  }
+}
+
+.item-testimony {
+
+  &__image-ibg {
+    position: relative;
+    align-self: center;
+    padding-bottom: percent(190, 190);
+
+    &::before {
+      position: absolute;
+      font-size: rem(40);
+      color: $mainWhite;
+      bottom: -22px;
+      right: -15px;
+      z-index: 1;
+    }
+
+    @media (min-width:$tablet) {
+      align-self: start;
+    }
+  }
+
+  &__content {
+    @media (max-width:$tablet) {
+      align-self: center;
+    }
+  }
+
+  &__text {
+    font-style: italic;
+    letter-spacing: 0.04em;
+
+    &:not(:last-child) {
+      margin-bottom: rem(16);
+    }
+  }
+
+  &__info {}
+
+  &__name {
+    @extend %cuf;
+    @include adaptiveValue("font-size", 32, 30, 1330, 990.98, 1);
+    line-height: 1.3;
+    letter-spacing: 0.04em;
+    text-transform: capitalize;
+    color: $mainYellow;
+
+    &:not(:last-child) {
+      margin-bottom: rem(4);
+    }
+  }
+
+  &__prof {
+    letter-spacing: 0.04em;
+    color: #F5EFDB;
+  }
+}
+
+//===================================================================================================
+
+//Video-module
+.video-module {
+  position: relative;
+  padding-bottom: percent(763, 1920);
+  cursor: pointer;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+
+  &::after {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 12px 0 12px 24px;
+    border-color: transparent transparent transparent #fff;
+  }
+
+  &::before {
+    border: 1px solid #dcca87;
+    @include adaptiveValue("width", 120, 80);
+    @include adaptiveValue("height", 120, 80);
+    border-radius: 50%;
+  }
+
+  &._active {
+
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    .video-module__item {
+      filter: grayscale(0);
+    }
+  }
+
+  // .video-module__item
+  &__item {
+    @extend %grayfilter;
+    object-fit: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+}
+
+//===================================================================================================
+
+//Awards
+.awards {
+  @include adaptiveValue("padding-top", 128, 40);
+  @include adaptiveValue("padding-bottom", 128, 40);
+
+  &__container {
+    display: grid;
+    grid-template-columns: auto 483px;
+    gap: rem(183);
+
+    @media (max-width:$pc) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__column {
+    &:first-child {
+      align-self: center;
+    }
+
+    &:last-child {
+      @media (max-width:$pc) {
+        display: none;
+      }
+    }
+  }
+
+  &__content {
+    display: grid;
+    @include adaptiveValue("gap", 64, 32);
+  }
+
+  &__header {}
+
+  &__image-ibg {
+    padding-bottom: percent(691, 483);
+  }
+}
+
+.items-awards {
+  display: grid;
+  @include adaptiveValue("row-gap", 64, 32);
+
+  @media (min-width:$mobile) {
+    grid-template-columns: repeat(2, 1fr);
+    @include adaptiveValue("column-gap", 32, 20, 1330, 991, 1);
+  }
+}
+
+.item-awards {
+  align-items: center;
+  display: flex;
+  @include adaptiveValue("column-gap", 32, 20, 1330, 991, 1);
+
+  @media (max-width:$mobile) {
+    justify-content: center;
+  }
+
+  &__image {
+    img {
+      width: 80px;
+      min-width: 80px;
+    }
+  }
+
+  &__content {
+    display: grid;
+    gap: 8px;
+  }
+
+  &__title {
+    @extend %cuf;
+    font-weight: 700;
+    font-size: rem(23);
+    line-height: 1.3;
+    color: $mainYellow;
+    letter-spacing: 0.04em;
+    text-transform: capitalize;
+  }
+
+  &__text {
+    letter-spacing: 0.04em;
+  }
+}
+
+//===================================================================================================
+
+//Blog-section
+
+.blog-section {
+  @include adaptiveValue("padding-top", 150, 40);
+  @include adaptiveValue("padding-bottom", 150, 40);
+
+  &__container {
+    display: grid;
+    gap: 64px;
+
+    &[data-decor] {
+      &::before {
+        position: absolute;
+        bottom: rem(-40);
+        right: rem(-200);
+
+        @media (max-width:$pc) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__header {}
+
+  &__items {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+
+    @media (min-width: em(1330)) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (min-width:$mobile) and (max-width: em(1330)) {
+      grid-template-columns: repeat(2, 1fr)
+    }
+  }
+
+  &__item {}
+
+  &__button {
+    justify-self: center;
+  }
+}
+
+//===================================================================================================
+
+//Gallery
+.gallery {
+  position: relative;
+  @include adaptiveValue("padding-top", 128, 40);
+  @include adaptiveValue("padding-bottom", 128, 40);
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(4, 4, 4, 0.5);
+    z-index: 3;
+  }
+
+  &__top {}
+
+
+  &__body {
+    min-width: 0;
+  }
+
+  &__container {
+    z-index: 5;
+    display: grid;
+    row-gap: 30px;
+
+    @media (min-width:$tablet) {
+      column-gap: rem(64);
+      grid-template-columns: rem(490) 1fr;
+    }
+  }
+
+  &__content {
+    align-self: center;
+    display: grid;
+    gap: rem(24);
+  }
+
+  &__header {}
+
+  &__text {}
+
+  &__button {
+    justify-self: start;
+  }
+
+  &__slider {
+    &.swiper {
+      //overflow: visible;
+    }
+  }
+
+  &__wrapper {}
+
+  &__slide-ibg {
+    flex: 0 0 300px;
+    width: 300px;
+    height: 447px;
+    border: 2px solid rgba(220, 202, 135, 02);
+    position: relative;
+
+    &::before {
+      @extend %ic;
+      @extend ._icon-instagram;
+      z-index: 6;
+      color: $mainWhite;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: rem(43);
+      opacity: 0;
+      transition: all 0.3s ease 0s;
+    }
+
+    &::after {
+      content: '';
+      opacity: 0;
+      position: absolute;
+      z-index: 5;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      transition: all 0.3s ease 0s;
+      background: linear-gradient(207.55deg, rgba(0, 0, 0, 0.75) 1.5%, rgba(0, 0, 0, 0.64) 98.62%);
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        &::before {
+          opacity: 1;
+        }
+
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+
+    @media (max-width:$mobileSmall) {
+      height: 400px;
+      flex: 0 0 250px;
+      width: 250px;
+    }
+  }
+}

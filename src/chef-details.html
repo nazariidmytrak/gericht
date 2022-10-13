@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/_head.htm',{
+"title":"Chef Details"
+})
+
+<body>
+  <div class="wrapper">
+    @@include('html/_header.htm',{})
+    <main class="chef-details">
+      <section class="hero">
+        <div class="hero__content">
+          <h2 class="hero__title">Our Chefs</h2>
+          <div class="hero__breadcrumbs">
+            <a class="hero__link" href="index.html">Home</a>
+            <a class="hero__link" href="team.html">Our team</a>
+            <a class="hero__link" href="chef-details.html">Chef Details</a>
+          </div>
+        </div>
+        <div class="hero__image-ibg">
+          <img data-src="@img/hero.jpg" alt="">
+        </div>
+      </section>
+      <div class="chef-details__body">
+        <div class="chef-details__about about-chef">
+          <div data-decor class="about-chef__container">
+            <div class="about-chef__image-ibg">
+              <img data-src="@img/chef-details/about-chef/about-chef-chef.jpg" alt="">
+            </div>
+            <div class="about-chef__content">
+              <div class="about-chef__header block-header block-header_left">
+                <div class="block-header__sup-title">Deputy Chef</div>
+                <h2 class="block-header__title">Patrick Choi</h2>
+              </div>
+              <div class="about-chef__info">
+                <div class="about-chef__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit auctor sit. Auctor
+                  sit iaculis in arcu. Vulputate nulla lobortis mauris eget sit. Nulla scelerisque scelerisque
+                  consectetur adipiscing elit.</div>
+                <ul class="about-chef__awards">
+                  <li class="about-chef__award">Graduated from Culinary Institute of New Jersey, USA.</li>
+                  <li class="about-chef__award">Worked as a junior chef at ruso’s Italiano.</li>
+                  <li class="about-chef__award">Contributed 20+ new recipes on International platform.</li>
+                  <li class="about-chef__award">Trained under renowned Chef Gusteau Marcellini</li>
+                </ul>
+                <img class="about-chef__image" src="@img/chef-details/about-chef/about-chef-signature.svg" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section data-bg class="chef-details__achievment achievment-chef">
+          <div class="achievment-chef__container">
+            <div class="achievment-chef__content">
+              <div class="achievment-chef__header block-header block-header_left">
+                <div class="block-header__sup-title">Deputy Chef</div>
+                <h2 class="block-header__title">Personal Achievements</h2>
+              </div>
+              <div class="items-awards">
+                <div class="item-awards">
+                  <div class="item-awards__image">
+                    <img src="@img/mainpage/awards/02.png" alt="">
+                  </div>
+                  <div class="item-awards__content">
+                    <h5 class="item-awards__title">Rising Star</h5>
+                    <div class="item-awards__text">Lorem ipsum dolor sit amet, consectetur.</div>
+                  </div>
+                </div>
+                <div class="item-awards">
+                  <div class="item-awards__image">
+                    <img src="@img/mainpage/awards/04.png" alt="">
+                  </div>
+                  <div class="item-awards__content">
+                    <h5 class="item-awards__title">Outstanding Chef</h5>
+                    <div class="item-awards__text">Lorem ipsum dolor sit amet, consectetur.</div>
+                  </div>
+                </div>
+                <div class="item-awards">
+                  <div class="item-awards__image">
+                    <img src="@img/mainpage/awards/04.png" alt="">
+                  </div>
+                  <div class="item-awards__content">
+                    <h5 class="item-awards__title">Outstanding Chef</h5>
+                    <div class="item-awards__text">Lorem ipsum dolor sit amet, consectetur.</div>
+                  </div>
+                </div>
+                <div class="item-awards">
+                  <div class="item-awards__image">
+                    <img src="@img/mainpage/awards/03.png" alt="">
+                  </div>
+                  <div class="item-awards__content">
+                    <h5 class="item-awards__title">AA Hospitality </h5>
+                    <div class="item-awards__text">Lorem ipsum dolor sit amet, consectetur.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="achievment-chef__image-ibg">
+              <img data-src="@img/chef-details/achievment-chef/achievment-chef-main.jpg" alt="">
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    @@include('html/_footer.htm',{})
+  </div>
+  @@include('html/_popup.htm',{})
+  @@include('html/_js.htm',{})
+</body>
+
+</html>

@@ -1,0 +1,142 @@
+//===================================================================================================
+
+//Chef-details
+.chef-details {
+  &__body {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: rem(250);
+      right: 50%;
+      width: 1920px;
+      height: 14908px;
+      transform: translate(50%, 0px);
+      background: url('@img/wave-element.svg') 0 0 / 100% no-repeat;
+
+      @media (max-width:$tablet) {
+        display: none;
+      }
+    }
+  }
+
+  &__about {}
+
+  &__achievment {}
+
+}
+
+//===================================================================================================
+
+//About-chef
+.about-chef {
+  @include adaptiveValue("padding-top", 150, 40);
+  @include adaptiveValue("padding-bottom", 150, 40);
+
+  &__container {
+    display: grid;
+    gap: 32px;
+
+    &[data-decor] {
+      &::before {
+        position: absolute;
+        right: rem(-150);
+        bottom: rem(-150);
+
+        @media (max-width:$pc) {
+          display: none;
+        }
+      }
+    }
+
+    @media (min-width:$tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__image-ibg {
+    padding-bottom: percent(800, 634);
+  }
+
+  &__content {
+    display: grid;
+    @include adaptiveValue("gap", 64, 32);
+    align-self: start;
+  }
+
+  &__header {}
+
+  &__info {
+    display: grid;
+    @include adaptiveValue("gap", 48, 24);
+  }
+
+  &__text {
+    font-style: italic;
+  }
+
+  &__awards {
+    display: grid;
+    @include adaptiveValue("gap", 24, 12);
+    @extend %cuf;
+  }
+
+  &__award {
+    font-style: normal;
+    font-weight: 600;
+    font-size: rem(16);
+    line-height: 1.75;
+    letter-spacing: 0.04em;
+    text-transform: capitalize;
+    color: #F5EFDB;
+    padding-left: 24px;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 1px;
+      background-color: $mainYellow;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__image {
+    @media (max-width:$mobileSmall) {
+      max-width: 290px;
+    }
+  }
+}
+
+
+//===================================================================================================
+
+//Achievment-chef
+
+.achievment-chef {
+  @include adaptiveValue("padding-top", 128, 40);
+  @include adaptiveValue("padding-bottom", 128, 40);
+
+  &__container {
+    display: grid;
+    gap: 32px;
+
+    @media (min-width:$pc) {
+      grid-template-columns: auto 631px;
+    }
+  }
+
+  &__content {
+    display: grid;
+    gap: 64px;
+  }
+
+  &__image-ibg {
+    border: 1px solid $mainYellow;
+    padding-bottom: percent(454, 631);
+  }
+}

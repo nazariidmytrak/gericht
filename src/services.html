@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/_head.htm',{
+"title":"Services"
+})
+
+<body>
+  <div class="wrapper">
+    @@include('html/_header.htm',{})
+    <main class="services">
+      <section class="hero">
+        <div class="hero__content">
+          <h2 class="hero__title">What We offer</h2>
+          <div class="hero__breadcrumbs">
+            <a class="hero__link" href="index.html">Home</a>
+            <a class="hero__link" href="#">Our Services</a>
+          </div>
+        </div>
+        <div class="hero__image-ibg">
+          <img data-src="@img/hero.jpg" alt="">
+        </div>
+      </section>
+
+      <div class="services__body">
+        <section class="quality">
+          <div class="quality__container">
+            <div class="quality__content">
+              <div class="quality__header block-header">
+                <div class="block-header__sup-title">Serving Quality</div>
+                <h2 class="quality__title block-header__title">We at Gericth are serving our customers for over a
+                  decade.
+                </h2>
+              </div>
+              <div class="quality__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis pharetra
+                adipiscing
+                ultrices vulputate posuere tristique. In sed odio nec aliquet eu proin mauris et.</div>
+              <div class="quality__buttons">
+                <a class="quality__button button" href="#">Read More</a>
+                <a class="quality__button button dark" href="#">Contact Us</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="menu-block">
+          <div data-decor class="menu-block__container menu-block__container_wide">
+            <nav class="menu-block__menu">
+              <ul class="menu-block__list">
+                <li class="menu-block__item"><a class="menu-block__link" href="#">Bar Menu</a></li>
+                <li class="menu-block__item"><a class="menu-block__link" href="#">Food Menu</a></li>
+                <li class="menu-block__item"><a class="menu-block__link" href="#">Desserts Menu</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="menu-block__bg">
+            <img src="@img/mainpage/menu/bg.jpg" alt="">
+          </div>
+        </section>
+
+        <section class="book">
+          <div data-decor class="book__container">
+            <div class="book__body">
+              <div class="book__header block-header">
+                <div class="block-header__sup-title">Reservations</div>
+                <h2 class="block-header__title">Book A Table</h2>
+              </div>
+              <form data-dev data-popup-message="#formMessage" class="book__form form-book" action="#">
+                <div class="form-book__lines">
+                  <div class="form-book__line">
+                    <select data-scroll name="form[]" data-class-modif="form">
+                      <option value="1" selected>1 Person</option>
+                      <option value="2">2 Person</option>
+                      <option value="3">3 Person</option>
+                      <option value="4">4 Person</option>
+                    </select>
+                  </div>
+                  <div class="form-book__line">
+                    <div class="form-book__input _icon-select-arrow">
+                      <input data-datepicker autocomplete="off" type="text" name="form[]" data-error="Ошибка"
+                        data-required placeholder="12.05.21" class="input-dark">
+                    </div>
+                  </div>
+                  <div class="form-book__line">
+                    <select data-scroll name="form[]" data-class-modif="form">
+                      <option value="1" selected>11:00 AM</option>
+                      <option value="2">12:00 AM</option>
+                      <option value="3">1:00 PM</option>
+                      <option value="4">2:00 PM</option>
+                      <option value="5">3:00 PM</option>
+                      <option value="6">4:00 PM</option>
+                      <option value="7">5:00 PM</option>
+                      <option value="8">6:00 PM</option>
+                      <option value="9">7:00 PM</option>
+                      <option value="10">8:00 PM</option>
+                    </select>
+                  </div>
+                </div>
+                <button type="submit" class="book__button button">Book Now</button>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <section class="hours">
+          <div class="hours__container">
+            <div class="hours__info">
+              <h3 class="hours__title">Happy Hours</h3>
+              <div class="hours__subtitle">Monday - Friday(4:00 Pm - 7:00 pm)</div>
+            </div>
+          </div>
+          <div class="hours__bg">
+            <img src="@img/bar/hours/hours-bg.jpg" alt="">
+          </div>
+        </section>
+      </div>
+
+    </main>
+    @@include('html/_footer.htm',{})
+  </div>
+  @@include('html/_popup.htm',{})
+  @@include('html/_js.htm',{})
+</body>
+
+</html>

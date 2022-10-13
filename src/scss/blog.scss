@@ -1,0 +1,77 @@
+//===================================================================================================
+
+//Blog-main
+.blog-main {
+  &__body {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 50%;
+      width: 1920px;
+      height: 14908px;
+      transform: translate(50%, 0px);
+      background: url('@img/wave-element.svg') 0 0 / 100% no-repeat;
+    }
+  }
+}
+
+//===================================================================================================
+
+//Blog
+.blog {
+  @include adaptiveValue("padding-top", 150, 40);
+  @include adaptiveValue("padding-bottom", 150, 40);
+
+  &__container {
+    &[data-decor] {
+      &::before {
+        position: absolute;
+        right: rem(-250);
+        top: 50%;
+        transform: translateY(-50%);
+
+        @media (max-width:$pc) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__content {
+    display: grid;
+    row-gap: 32px;
+    column-gap: 0;
+
+    @media (min-width:$tablet) {
+      grid-template-columns: repeat(12, 1fr);
+      gap: 32px;
+    }
+  }
+
+  &__items-wrapper {
+    display: grid;
+    gap: 64px;
+    justify-items: center;
+
+    @media (min-width:$tablet) {
+      grid-column: span 8;
+    }
+  }
+
+  &__items {
+    display: grid;
+    column-gap: 32px;
+    @include adaptiveValue("row-gap", 64, 32);
+
+    @media (min-width:$mobile) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__button {
+    align-self: center;
+  }
+}

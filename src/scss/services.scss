@@ -1,0 +1,53 @@
+.about {
+  &__body {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 250px;
+      right: 50%;
+      width: 1920px;
+      height: 14908px;
+      transform: translate(50%, 0px);
+      background: url('@img/wave-element.svg') 0 0 / 100% no-repeat;
+
+      @media (max-width:$tablet) {
+        display: none;
+      }
+    }
+  }
+}
+
+.quality {
+  @include adaptiveValue("padding-top", 150, 40);
+  @include adaptiveValue("padding-bottom", 150, 40);
+
+  &__container {}
+
+  &__content {
+    text-align: center;
+    display: grid;
+    justify-items: center;
+    @include adaptiveValue("gap", 40, 20);
+  }
+
+  &__header {}
+
+  &__title {
+    max-width: 1128px;
+  }
+
+  &__text {
+    max-width: 868px;
+  }
+
+  &__buttons {
+    display: flex;
+    @include adaptiveValue("gap", 40, 20);
+  }
+
+  &__button {}
+}
+
+.button {}

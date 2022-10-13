@@ -1,0 +1,184 @@
+//===================================================================================================
+
+//Team
+.team {
+  &__body {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: rem(250);
+      right: 50%;
+      width: 1920px;
+      height: 14908px;
+      transform: translate(50%, 0px);
+      background: url('@img/wave-element.svg') 0 0 / 100% no-repeat;
+
+      @media (max-width:$tablet) {
+        display: none;
+      }
+    }
+  }
+
+  &__chefs {
+    .chefs__container {
+      &[data-decor] {
+        &::before {
+          position: absolute;
+          top: rem(400);
+          right: rem(-200);
+
+          @media (max-width:$pc) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+//==============================================================
+
+//Chefs
+.chefs {
+  @include adaptiveValue("padding-top", 150, 40);
+  @include adaptiveValue("padding-bottom", 150, 40);
+
+  &__container {}
+
+  &__items {
+    display: grid;
+    grid-template-columns: 1fr;
+    @include adaptiveValue("column-gap", 32, 16);
+    @include adaptiveValue("row-gap", 64, 32);
+
+    @media (min-width:$mobile) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (min-width:$mobileSmall) and (max-width:$mobile) {
+      grid-template-columns: repeat(2, 1fr)
+    }
+  }
+
+  &__item {
+    display: grid;
+    @include adaptiveValue("gap", 32, 16);
+  }
+}
+
+.item-chefs {
+  overflow: hidden;
+  position: relative;
+
+  &__wrapper {
+    position: relative;
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      .item-chefs__name {
+        color: $mainYellow;
+      }
+
+      .item-chefs__image-ibg img {
+        opacity: 0.3;
+        transform: scale(1.05);
+      }
+
+      .item-chefs__social {
+        opacity: 1;
+      }
+
+      .item-chefs__button {
+        &::before {
+          width: 16px;
+        }
+      }
+
+    }
+  }
+
+  &__image-ibg {
+    padding-bottom: percent(520, 412);
+
+    img {
+      transition: all 0.5s ease 0s;
+      border: 1px solid $mainYellow;
+    }
+  }
+
+  &__info {
+    display: grid;
+    gap: 8px;
+    color: $mainWhite;
+  }
+
+  &__name {
+    @extend %cuf;
+    font-style: normal;
+    font-weight: 600;
+    @include adaptiveValue("font-size", 45, 28);
+    line-height: 1.3;
+    letter-spacing: 0.04em;
+    text-transform: capitalize;
+    transition: color 0.3s ease 0s;
+  }
+
+  &__prof {
+    letter-spacing: 0.04em;
+  }
+
+  &__social {
+    position: absolute;
+    bottom: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: grid;
+    gap: 16px;
+    opacity: 0;
+    transition: all 0.3s ease 0s;
+  }
+
+  &__icons {
+    display: flex;
+    gap: 16px;
+    color: $mainWhite;
+  }
+
+  &__icon {
+    font-size: rem(22);
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: $mainYellow;
+      }
+    }
+  }
+
+  &__button {
+    @extend %cuf;
+    font-style: normal;
+    font-weight: 700;
+    font-size: rem(16);
+    line-height: 1.75;
+    letter-spacing: 0.04em;
+    color: $mainYellow;
+    padding-left: 24px;
+    position: relative;
+
+    &::before {
+      content: '';
+      width: 0;
+      height: 1px;
+      background-color: $mainYellow;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      transition: all 1s ease 0s;
+    }
+  }
+}

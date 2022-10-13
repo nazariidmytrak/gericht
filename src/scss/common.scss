@@ -1,0 +1,555 @@
+// Заголовки, общие БЄМ блоки и проче...
+
+// Глобальний фон
+[data-bg] {
+  position: relative;
+  overflow: hidden;
+}
+
+//Decor
+[data-decor] {
+  &::before {
+    content: '';
+    background: url('@img/main-decor.svg') 0 0 / 100% no-repeat;
+    width: rem(145);
+    height: rem(145);
+    animation: rotate 35s infinite linear;
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+// Глобальний фон
+.bg-item {
+  position: absolute;
+  top: -30%;
+  left: 0;
+  width: 100%;
+  height: 160%;
+  background: url('@img/main-bg.jpg') center / cover no-repeat;
+}
+
+// Шрифт
+%cuf {
+  font-family: CormorantUpright;
+}
+
+// Шапка блока
+.block-header {
+  @extend %cuf;
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+  text-transform: capitalize;
+
+  &__sup-title {
+    @include adaptiveValue("font-size", 23, 23);
+    line-height: 1.3;
+    color: $mainWhite;
+    letter-spacing: 0.04em;
+
+    display: grid;
+    gap: 8px;
+    justify-items: center;
+
+    &::after {
+      @extend %ic;
+      content: "\e904";
+      color: $mainYellow;
+      font-size: em(9, 23); // 9 - висота картинки, 23 - розмір батьківського шрифта
+    }
+  }
+
+  &__title {
+    @include adaptiveValue("font-size", 64, 35);
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: 0.04em;
+    color: $mainYellow;
+  }
+
+  //Модифікатори
+  &_big {
+    .block-header__title {
+      @include adaptiveValue("font-size", 90, 40);
+    }
+  }
+
+  &_left {
+    justify-items: stretch;
+
+    .block-header__sup-title {
+      justify-items: stretch;
+    }
+  }
+
+}
+
+//Scroll
+.scroll {
+  @extend %cuf;
+  color: $mainYellow;
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 1.75;
+  letter-spacing: 0.04em;
+  display: grid;
+  justify-items: center;
+  gap: 24px;
+
+  &::before {
+    content: '';
+    background: rgb(220, 202, 135);
+    background: linear-gradient(180deg, rgba(220, 202, 135, 1) 66%, rgba(220, 202, 135, 0.24) 100%);
+    width: 1px;
+    height: 60px;
+  }
+}
+
+//Text
+[class*='__text'] {
+  line-height: 1.75;
+}
+
+//Hero
+.hero {
+  position: relative;
+  @include adaptiveValue("padding-top", 120, 60);
+  @include adaptiveValue("padding-bottom", 40, 20);
+
+
+  &__content {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    @include adaptiveValue("gap", 24, 12);
+    text-align: center;
+    @extend %cuf;
+    width: 100%;
+    font-weight: 700;
+    font-style: normal;
+    padding: 0 10px;
+  }
+
+  &__title {
+    @include adaptiveValue("font-size", 90, 35);
+    line-height: 130%;
+    line-height: 1.3;
+    text-align: center;
+    letter-spacing: 0.04em;
+    text-transform: capitalize;
+    color: $mainYellow;
+  }
+
+  &__breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    column-gap: 16px;
+    row-gap: 8px;
+  }
+
+  &__link {
+    line-height: 1.3;
+    @include adaptiveValue("font-size", 23, 16);
+    letter-spacing: 0.04em;
+    text-transform: capitalize;
+    color: $mainWhite;
+    position: relative;
+
+    &:not(:last-child) {
+      padding-right: 24px;
+
+      &::after {
+        content: '';
+        background: url('@img/hero-arrow.svg') no-repeat;
+        position: absolute;
+        width: 8px;
+        height: 13px;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+      }
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: $mainYellow;
+      }
+    }
+  }
+
+  &__image-ibg {
+    padding-bottom: percent(680, 1920);
+
+    @media (max-width: $mobile) {
+      padding-bottom: 70%;
+    }
+
+    img {
+      opacity: 0.5;
+    }
+  }
+}
+
+//Item-blog
+.item-blog {
+  display: grid;
+  gap: 24px;
+
+  @media (any-hover: hover) {
+    &:hover {
+      .item-blog__img {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__image-ibg {
+    overflow: hidden;
+    padding-bottom: percent(430, 412);
+  }
+
+  &__img {
+    border: 1px solid rgba(220, 202, 135, 0.2);
+    transition: transform 1s ease 0s;
+  }
+
+  &__body {
+    display: grid;
+    @include adaptiveValue("gap", 32, 25);
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    color: #FAFAFA;
+  }
+
+  &__date {}
+
+  &__author {}
+
+  &__title {
+    @extend %cuf;
+    @include adaptiveValue("font-size", 32, 28);
+    line-height: 1.3;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: capitalize;
+    color: $mainYellow;
+
+    @media (any-hover: hover) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__text {}
+
+  &__button {
+    @extend %cuf;
+    font-weight: 700;
+    line-height: 1.75;
+    letter-spacing: 0.04em;
+    color: $mainYellow;
+    text-transform: capitalize;
+  }
+}
+
+//===================================================================================================
+
+//Sidebar
+
+.sidebar {
+  display: grid;
+
+  @media (min-width:$tablet) {
+    padding-left: 37px;
+    grid-column: span 4;
+  }
+
+
+  &__items {
+    display: grid;
+    gap: 32px;
+    height: 100%;
+  }
+
+  &__item {
+    background-color: #242424;
+  }
+}
+
+//===================================================================================================
+
+//Item-sidebar
+.item-sidebar {
+  padding: 32px;
+  display: grid;
+  @include adaptiveValue("gap", 32, 25, 1330, 991);
+
+  &__title {
+    @extend %cuf;
+    font-style: normal;
+    font-weight: 400;
+    @include adaptiveValue("font-size", 32, 25, 1330, 991, 1);
+    line-height: 1.3;
+    letter-spacing: 0.04em;
+    text-transform: capitalize;
+    color: $mainYellow;
+  }
+}
+
+//===================================================================================================
+
+//Sidebar-search
+.sidebar-search {
+
+
+  &__input-wrapper {
+    position: relative;
+
+    &::before {
+      content: '';
+      background-color: rgba($mainColor, 0.4);
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      bottom: -2px;
+      left: 0;
+    }
+  }
+
+  &__input {
+    background-color: transparent;
+    width: 100%;
+    font-family: $fontFamily;
+    font-style: normal;
+    font-weight: 400;
+    font-size: rem(16);
+    line-height: 1.75;
+    letter-spacing: 0.04em;
+    color: $mainColor;
+
+    &::placeholder {
+      font-family: $fontFamily;
+      font-style: normal;
+      font-weight: 400;
+      font-size: rem(16);
+      line-height: 1.75;
+      letter-spacing: 0.04em;
+      color: $mainColor;
+    }
+  }
+
+  &__link {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+//===================================================================================================
+
+//Sidebar-categories
+.sidebar-categories {
+  &__items {
+    display: grid;
+    gap: 32px;
+  }
+
+  &__item {}
+}
+
+//===================================================================================================
+
+//Item-categories
+.item-categories {
+  display: grid;
+  position: relative;
+  grid-template-columns: 120px 20px;
+  align-items: center;
+  justify-content: space-between;
+
+  &>* {
+    position: relative;
+    z-index: 2;
+    background-color: #242424;
+  }
+
+  &::before {
+    content: '';
+    background-color: #fafafa;
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+
+
+  &__text {
+    letter-spacing: 0.04em;
+  }
+
+  &__number {
+    justify-self: end;
+    padding-left: rem(15);
+  }
+}
+
+//===================================================================================================
+
+//Sidebar-latest
+.sidebar-latest {
+  &__image {
+    overflow: hidden;
+
+    img {
+      transition: all 0.5s ease 0s;
+      max-width: 100%;
+
+      @media (max-width:$tablet) {
+        width: 100%;
+      }
+
+      @media (any-hover: hover) {
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}
+
+//===================================================================================================
+
+//Content-latest
+.content-latest {
+  display: grid;
+  @include adaptiveValue("gap", 32, 25, 1330, 991);
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    color: #fafafa;
+    letter-spacing: 0.04em;
+    flex-wrap: wrap;
+    row-gap: 8px;
+    align-items: center;
+  }
+
+  &__title {
+    @extend %cuf;
+    font-style: normal;
+    font-weight: 400;
+    @include adaptiveValue("font-size", 32, 25, 1330, 991, 1);
+    line-height: 1.3;
+    letter-spacing: 0.04em;
+    text-transform: capitalize;
+    color: $mainYellow;
+
+    @media (any-hover: hover) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__link {
+    @extend %cuf;
+    font-style: normal;
+    font-weight: 700;
+    font-size: rem(16);
+    line-height: 1.75;
+    letter-spacing: 0.04em;
+    color: $mainYellow;
+
+    @media (any-hover: hover) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+//===================================================================================================
+
+//Sidebar-tags
+.sidebar-tags {
+  &__items {
+    display: grid;
+    gap: 16px;
+  }
+}
+
+//===================================================================================================
+
+//Item-tags
+.item-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  &__link {
+    position: relative;
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: $mainYellow;
+      }
+    }
+
+    &:not(:last-child) {
+      padding-right: 24px;
+
+      &::after {
+        content: '';
+        position: absolute;
+        background-color: $mainYellow;
+        width: 16px;
+        height: 1px;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}
+
+//===================================================================================================
+
+//Sidebar-share
+.sidebar-share {
+  &__socials {
+    display: flex;
+    gap: 16px;
+    font-size: rem(24);
+  }
+
+  &__link {
+    font-weight: 700;
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: $mainYellow;
+      }
+    }
+  }
+}
