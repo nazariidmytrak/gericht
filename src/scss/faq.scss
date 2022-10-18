@@ -93,6 +93,10 @@
     padding: 24px;
     background-color: #242424;
     display: grid;
+
+    &_active {
+      border: 1px solid $mainYellow;
+    }
   }
 
   &__title {

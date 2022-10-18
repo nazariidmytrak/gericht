@@ -420,8 +420,7 @@
   position: relative;
   @include adaptiveValue("padding-top", 150, 0);
   @include adaptiveValue("padding-bottom", 150, 0);
-
-
+  z-index: 5;
 
   &__container {
     &[data-decor] {

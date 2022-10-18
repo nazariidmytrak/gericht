@@ -244,10 +244,15 @@ export function spollers() {
 					if (oneSpoller && !spollerTitle.classList.contains('_spoller-active')) {
 						hideSpollersBody(spollersBlock);
 					}
-					spollerTitle.classList.toggle('_spoller-active');
+					spollerTitle.classList.toggle('_spoller-active'); //&& spollerTitle.closest('.accordion__item').classList.toggle('accordion__item_active');//my
 					_slideToggle(spollerTitle.nextElementSibling, spollerSpeed);
 				}
 				e.preventDefault();
+				if (spollerTitle.classList.contains('_spoller-active')) {
+					spollerTitle.closest('.accordion__item').classList.add('accordion__item_active');
+				} else {
+					spollerTitle.closest('.accordion__item').classList.remove('accordion__item_active');
+				}//my If
 			}
 		}
 		function hideSpollersBody(spollersBlock) {
@@ -255,6 +260,7 @@ export function spollers() {
 			const spollerSpeed = spollersBlock.dataset.spollersSpeed ? parseInt(spollersBlock.dataset.spollersSpeed) : 500;
 			if (spollerActiveTitle && !spollersBlock.querySelectorAll('._slide').length) {
 				spollerActiveTitle.classList.remove('_spoller-active');
+				spollerActiveTitle.closest('.accordion__item').classList.remove('accordion__item_active')//my
 				_slideUp(spollerActiveTitle.nextElementSibling, spollerSpeed);
 			}
 		}

@@ -17,11 +17,10 @@
 			box-shadow: 0 0 5px #000;
 		}
 
-		&:checked+.checkbox__label:before {
-			background: transparent;
-			content: '\2713';
-			font-size: 19px;
-			font-weight: 700;
+		&:checked+.checkbox__label:before {}
+
+		&:checked+.checkbox__label:after {
+			transform: translateY(-50%) rotate(40deg) scale(1);
 		}
 	}
 
@@ -45,6 +44,19 @@
 			left: 0;
 			top: 50%;
 			transform: translateY(-50%);
+		}
+
+		&::after {
+			content: '';
+			width: 7px;
+			height: 12px;
+			border-bottom: 2px solid $mainYellow;
+			border-right: 2px solid $mainYellow;
+			position: absolute;
+			top: 45%;
+			transform: translateY(-50%) rotate(40deg) scale(0);
+			left: 5px;
+			transition: all 0.3s ease 0s;
 		}
 	}
 

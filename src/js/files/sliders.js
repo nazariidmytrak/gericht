@@ -1,4 +1,4 @@
-import {gallery} from "./gallery.js";
+import { gallery } from "./gallery.js";
 
 /*
 Документация по работе в шаблоне: 
@@ -9,7 +9,7 @@ import {gallery} from "./gallery.js";
 // Подключаем слайдер Swiper из node_modules
 // При необходимости подключаем дополнительные модули слайдера, указывая их в {} через запятую
 // Пример: { Navigation, Autoplay }
-import Swiper, {Pagination, EffectFade, Lazy, Autoplay, FreeMode} from 'swiper';
+import Swiper, { Pagination, EffectFade, Lazy, Autoplay, FreeMode } from 'swiper';
 /*
 Основниые модули слайдера:
 Navigation, Pagination, Autoplay, 
@@ -20,7 +20,7 @@ EffectFade, Lazy, Manipulation
 // Стили Swiper
 // Базовые стили
 import "../../scss/base/swiper.scss";
-import {flsModules} from "./modules.js";
+import { flsModules } from "./modules.js";
 import lightGallery from "lightgallery";
 // Полный набор стилей из scss/libs/swiper.scss
 //import "../../scss/libs/swiper.scss";
@@ -120,7 +120,7 @@ function initSliders() {
         licenseKey: '7EC452A9-0CFD441C-BD984C7C-17C8456E',
         speed: 500,
     });
-    let i = 0;
+    // let i = 0;
 
     //Gallery-slider
     // Проверяем, есть ли слайдер на стронице
@@ -143,7 +143,7 @@ function initSliders() {
             //touchRatio: 0,
             //simulateTouch: false,
             loop: false,
-            resistanceRatio:0,
+            resistanceRatio: 0,
             preloadImages: false,
             lazy: {
                 loadPrevNext: true
@@ -187,9 +187,7 @@ function initSliders() {
             on: {
 
                 slideChange: function (swiper) {
-                    i++;
-
-
+                    // i++;
                     /*
                     if (i === 3) {
                         gallery.destroy()
@@ -202,8 +200,6 @@ function initSliders() {
                         i = 0;
                     }
                     */
-
-
                 }
             }
         });
